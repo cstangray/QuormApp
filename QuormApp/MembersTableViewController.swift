@@ -55,6 +55,8 @@ class MembersTableViewController: UITableViewController {
         setupUI()
         
         loadDataFromRealm()
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
 
     }
     

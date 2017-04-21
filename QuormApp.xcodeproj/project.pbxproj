@@ -19,6 +19,10 @@
 		7450FDFB1EAA4CF700285863 /* Tabbar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7450FDFA1EAA4CF700285863 /* Tabbar.xcassets */; };
 		7450FDFD1EAA4D3900285863 /* MembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450FDFC1EAA4D3900285863 /* MembersTableViewController.swift */; };
 		7450FDFF1EAA4D4600285863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7450FDFE1EAA4D4600285863 /* Main.storyboard */; };
+		7450FE021EAA6CB000285863 /* mount-timpanogos-temple-lds-909852-mobile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7450FE011EAA6CB000285863 /* mount-timpanogos-temple-lds-909852-mobile.jpg */; };
+		7450FE041EAA6CC800285863 /* mount-timpanogos-temple-lds-885511-mobile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7450FE031EAA6CC800285863 /* mount-timpanogos-temple-lds-885511-mobile.jpg */; };
+		7450FE061EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7450FE051EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg */; };
+		7450FE081EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7450FE071EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +53,10 @@
 		7450FDFA1EAA4CF700285863 /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
 		7450FDFC1EAA4D3900285863 /* MembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersTableViewController.swift; sourceTree = "<group>"; };
 		7450FDFE1EAA4D4600285863 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7450FE011EAA6CB000285863 /* mount-timpanogos-temple-lds-909852-mobile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mount-timpanogos-temple-lds-909852-mobile.jpg"; sourceTree = "<group>"; };
+		7450FE031EAA6CC800285863 /* mount-timpanogos-temple-lds-885511-mobile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mount-timpanogos-temple-lds-885511-mobile.jpg"; sourceTree = "<group>"; };
+		7450FE051EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mount-timpanogos-temple-lds-909839-mobile.jpg"; sourceTree = "<group>"; };
+		7450FE071EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mount-timpanogos-temple-766300-mobile.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				7450FDDE1EA9748C00285863 /* QuormApp */,
+				7450FE001EAA6C8600285863 /* photoImages */,
 				7450FDF71EA978A000285863 /* RealmSwift.framework */,
 				7450FDF31EA9789700285863 /* Realm.framework */,
 				7450FDDD1EA9748C00285863 /* Products */,
@@ -95,6 +104,18 @@
 				7450FDEA1EA9748C00285863 /* LaunchScreen.storyboard */,
 				7450FDED1EA9748C00285863 /* Info.plist */,
 			);
+			path = QuormApp;
+			sourceTree = "<group>";
+		};
+		7450FE001EAA6C8600285863 /* photoImages */ = {
+			isa = PBXGroup;
+			children = (
+				7450FE011EAA6CB000285863 /* mount-timpanogos-temple-lds-909852-mobile.jpg */,
+				7450FE031EAA6CC800285863 /* mount-timpanogos-temple-lds-885511-mobile.jpg */,
+				7450FE051EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg */,
+				7450FE071EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg */,
+			);
+			name = photoImages;
 			path = QuormApp;
 			sourceTree = "<group>";
 		};
@@ -160,8 +181,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7450FDEC1EA9748C00285863 /* LaunchScreen.storyboard in Resources */,
+				7450FE061EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg in Resources */,
 				7450FDE91EA9748C00285863 /* Assets.xcassets in Resources */,
 				7450FDFB1EAA4CF700285863 /* Tabbar.xcassets in Resources */,
+				7450FE041EAA6CC800285863 /* mount-timpanogos-temple-lds-885511-mobile.jpg in Resources */,
+				7450FE081EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg in Resources */,
+				7450FE021EAA6CB000285863 /* mount-timpanogos-temple-lds-909852-mobile.jpg in Resources */,
 				7450FDFF1EAA4D4600285863 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
