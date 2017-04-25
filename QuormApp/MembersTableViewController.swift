@@ -56,7 +56,7 @@ class MembersTableViewController: UITableViewController {
         
         loadDataFromRealm()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
 
     }
     
@@ -206,11 +206,37 @@ class MembersTableViewController: UITableViewController {
 
 extension MembersTableViewController {
     
+//    func addScripture() {
+//        
+//        let vc = ScriptureViewController()
+//        
+//        vc.delegate = self
+//        
+//        vc.modalPresentationStyle = .popover
+//        
+//        guard let popoverPresentationController = vc.popoverPresentationController else {
+//            return
+//        }
+//        
+//        
+//        let frame = cvSearchResults.convert(cell.frame, to: self.view)
+//        
+//        popoverPresentationController.permittedArrowDirections = [.up, .down]
+//        popoverPresentationController.delegate = self
+//        popoverPresentationController.sourceView = self.view
+//        popoverPresentationController.sourceRect = frame//cell.frame.offsetBy(dx: 0, dy: 50 + height)
+//        
+//        self.present(vc, animated: true, completion: nil)
+//    }
+
+    
+    
     func add() {
         let alertController = UIAlertController(title: "New Member", message: "Enter Member Name", preferredStyle: .alert)
         var tfAlertFirstName: UITextField!
         var tfAlertFamilyName: UITextField!
         var tfAlertSpouseName: UITextField!
+        var tfAlertComment: UITextField!
 
         
         
@@ -228,6 +254,11 @@ extension MembersTableViewController {
             tfAlertSpouseName = spouseTextField
             spouseTextField.placeholder = "Spouse Name"
         }
+        
+//        alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+//            textField.placeholder = "Search"
+//        })
+        
 
         
         alertController.addAction(UIAlertAction(title: "Add", style: .default) { _ in
