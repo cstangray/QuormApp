@@ -113,7 +113,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Attendance" image="resources-SolidBondi" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Attendance" image="UITabBarSystemItemHistory" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,7 +146,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jjm-x3-IcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="2436" y="-186"/>
+        </scene>
+        <!--Tools Table View Controller-->
+        <scene sceneID="f9u-kn-u0r">
+            <objects>
+                <tableViewController id="3Xb-9f-YxD" customClass="ToolsTableViewController" customModule="QuormApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="f82-yu-NIh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="L6p-R2-C8p">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L6p-R2-C8p" id="oHj-lE-2A0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3Xb-9f-YxD" id="pW8-qe-Orn"/>
+                            <outlet property="delegate" destination="3Xb-9f-YxD" id="bJz-MA-OUv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="qFt-Lc-6LZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TFU-4X-7AO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2436" y="474"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -162,6 +191,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="6vE-ax-BRT" kind="relationship" relationship="viewControllers" id="QYM-69-LIm"/>
+                        <segue destination="tUm-ya-gyS" kind="relationship" relationship="viewControllers" id="gnS-84-NhW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -185,10 +215,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFZ-8v-98U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1520.8" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="1534" y="-186"/>
+        </scene>
+        <!--Tools-->
+        <scene sceneID="uyf-k7-G13">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tUm-ya-gyS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tools" image="resources-SolidBondi" id="EVR-Ez-iGb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cwi-Qx-38u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Xb-9f-YxD" kind="relationship" relationship="rootViewController" id="iPZ-vo-xUD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSk-0n-fja" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534" y="474"/>
         </scene>
     </scenes>
     <resources>
+        <image name="UITabBarSystemItemHistory" width="16" height="16"/>
         <image name="group_mentor-SolidBondi" width="25" height="21"/>
         <image name="home - solid" width="25" height="25"/>
         <image name="mount-timpanogos-temple-766300-mobile.jpg" width="457" height="640"/>
