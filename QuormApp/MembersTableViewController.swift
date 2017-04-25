@@ -9,6 +9,7 @@
 import UIKit
 
 import RealmSwift
+import RealmResultsController
 
 
 final class MemberList: Object {
@@ -39,6 +40,7 @@ class MembersTableViewController: UITableViewController {
     var members = List<Member>()
     
     var realm: Realm!
+    //fileprivate var resultController:RealmResultsController<Member>
 
 
     override func viewDidLoad() {
@@ -54,10 +56,14 @@ class MembersTableViewController: UITableViewController {
         
         setupUI()
         
-        loadDataFromRealm()
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadDataFromRealm()
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -173,14 +179,25 @@ class MembersTableViewController: UITableViewController {
     
     func loadDataFromRealm() {
         if realm == nil {
-            realm = try! Realm()
+            //realm = try! Realm()
+            realm = RealmManager.shared.realm
         }
         
-        let hpMembers = realm.objects(Member.self)
+//        let predicate = NSPredicate(value: true)
+//        let fetchRequest = RealmRequest<Member>(predicate: predicate, realm: realm, sortDescriptors: [SortDescriptor(keyPath: "familyName")])
+//        
+//        resultController = try! RealmResultsController(request: fetchRequest, sectionKeyPath: nil, mapper: { message -> ChatMessage in
+//            let chatMessage = ChatMessage(message: message)
+//            return chatMessage
+//        })
+//        
+//        resultController.delegate = self
+//        let _ = resultController.performFetch()
+        
+        let hpMembers = realm.objects(Member.self).sorted(byKeyPath: "familyName")
+        
+        members = List<Member>()
         members.append(objectsIn: hpMembers)
-        
-        //items.append(Task(value: ["text": "My First Task"]))
-        
         
     }
     

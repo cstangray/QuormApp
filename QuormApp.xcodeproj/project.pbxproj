@@ -25,6 +25,8 @@
 		7450FE061EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7450FE051EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg */; };
 		7450FE081EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7450FE071EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg */; };
 		7450FE0A1EAD276C00285863 /* ToolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450FE091EAD276C00285863 /* ToolsTableViewController.swift */; };
+		7450FE0C1EAFA9EC00285863 /* RealmResultsController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7450FE0B1EAFA9EC00285863 /* RealmResultsController.framework */; };
+		7450FE0D1EAFA9EC00285863 /* RealmResultsController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7450FE0B1EAFA9EC00285863 /* RealmResultsController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,7 @@
 			files = (
 				7450FDF91EA978A000285863 /* RealmSwift.framework in Embed Frameworks */,
 				7450FDF51EA9789700285863 /* Realm.framework in Embed Frameworks */,
+				7450FE0D1EAFA9EC00285863 /* RealmResultsController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +64,7 @@
 		7450FE051EAA6CD600285863 /* mount-timpanogos-temple-lds-909839-mobile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mount-timpanogos-temple-lds-909839-mobile.jpg"; sourceTree = "<group>"; };
 		7450FE071EAA6CEA00285863 /* mount-timpanogos-temple-766300-mobile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mount-timpanogos-temple-766300-mobile.jpg"; sourceTree = "<group>"; };
 		7450FE091EAD276C00285863 /* ToolsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolsTableViewController.swift; sourceTree = "<group>"; };
+		7450FE0B1EAFA9EC00285863 /* RealmResultsController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmResultsController.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			files = (
 				7450FDF81EA978A000285863 /* RealmSwift.framework in Frameworks */,
 				7450FDF41EA9789700285863 /* Realm.framework in Frameworks */,
+				7450FE0C1EAFA9EC00285863 /* RealmResultsController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,7 @@
 			children = (
 				7450FDDE1EA9748C00285863 /* QuormApp */,
 				7450FE001EAA6C8600285863 /* photoImages */,
+				7450FE0B1EAFA9EC00285863 /* RealmResultsController.framework */,
 				7450FDF71EA978A000285863 /* RealmSwift.framework */,
 				7450FDF31EA9789700285863 /* Realm.framework */,
 				7450FDDD1EA9748C00285863 /* Products */,
