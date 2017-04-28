@@ -29,9 +29,6 @@ final class Member: Object {
     dynamic var spouseName = ""
     dynamic var autoAttend = false
     dynamic var completed = false
-    
-
-    
 }
 
 
@@ -39,7 +36,9 @@ class MembersTableViewController: UITableViewController {
     
     var members = List<Member>()
     
-    var realm: Realm!
+    //var realm: Realm!
+    
+    //var realm = RealmManager.shared.realm
     //fileprivate var resultController:RealmResultsController<Member>
 
 
@@ -104,7 +103,7 @@ class MembersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let member = members[indexPath.row]
-        try! realm?.write {
+        try! RealmManager.shared.realm.write {
             member.completed = !member.completed
             let destinationIndexPath: IndexPath
             if member.completed {
@@ -112,7 +111,7 @@ class MembersTableViewController: UITableViewController {
                 destinationIndexPath = IndexPath(row: members.count - 1, section: 0)
             } else {
                 // move cell just above the first completed item
-                let completedCount = realm.objects(Member.self).filter("completed = true").count
+                let completedCount = RealmManager.shared.realm.objects(Member.self).filter("completed = true").count
                 destinationIndexPath = IndexPath(row: members.count - completedCount - 1, section: 0)
             }
             members.move(from: indexPath.row, to: destinationIndexPath.row)
@@ -130,10 +129,10 @@ class MembersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            try! realm.write {
+            try! RealmManager.shared.realm.write {
                 
                 let member = members.remove(at: indexPath.row)
-                self.realm.delete(member)
+                RealmManager.shared.realm.delete(member)
                 
                 tableView.reloadData()
             }
@@ -171,10 +170,9 @@ class MembersTableViewController: UITableViewController {
     
     
     func loadDataFromRealm() {
-        if realm == nil {
-            //realm = try! Realm()
-            realm = RealmManager.shared.realm
-        }
+//        if realm == nil {
+//            realm = RealmManager.shared.realm
+//        }
         
 //        let predicate = NSPredicate(value: true)
 //        let fetchRequest = RealmRequest<Member>(predicate: predicate, realm: realm, sortDescriptors: [SortDescriptor(keyPath: "familyName")])
@@ -187,9 +185,9 @@ class MembersTableViewController: UITableViewController {
 //        resultController.delegate = self
 //        let _ = resultController.performFetch()
         
-        let hpMembers = realm.objects(Member.self).sorted(byKeyPath: "familyName")
+        let hpMembers = RealmManager.shared.realm.objects(Member.self).sorted(byKeyPath: "familyName")
         
-        members = List<Member>()
+        members = List<Member>() //reset obj
         members.append(objectsIn: hpMembers)
         
     }
@@ -278,12 +276,12 @@ extension MembersTableViewController {
 
             
             
-            try! self.realm?.write {
+            try! RealmManager.shared.realm.write {
                 let newMember = Member(value: ["firstName": firstName , "familyName": lastName, "spouseName": spouseName, "fullName" : firstName + " " + lastName])
 
                 self.members.append(newMember)
                 
-                self.realm.add(newMember)
+                RealmManager.shared.realm.add(newMember)
                 
                 self.tableView.reloadData()
                 
@@ -333,7 +331,7 @@ extension MembersTableViewController {
     
     func switchValueDidChange(sender:UISwitch!){
         
-        try! realm.write {
+        try! RealmManager.shared.realm.write {
             
             let member = members[sender.tag]
             

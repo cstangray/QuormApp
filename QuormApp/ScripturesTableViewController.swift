@@ -23,16 +23,20 @@ final class ScriptureList: Object {
 
 final class Scripture: Object {
     dynamic var citation = ""
-    dynamic var quote = ""
+    dynamic var source = ""
 
 }
 
 
 class ScripturesTableViewController: UITableViewController {
     
+    //var members = List<Member>()
+    //var scriptures = List<Scripture>()
+    
     var scriptures = List<Scripture>()
     
-    var realm: Realm!
+    
+    //var realm =  RealmManager.shared.realm
     //fileprivate var resultController:RealmResultsController<Member>
     
     
@@ -66,7 +70,6 @@ class ScripturesTableViewController: UITableViewController {
     }
 
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "cell"
         
@@ -74,9 +77,9 @@ class ScripturesTableViewController: UITableViewController {
         
         let scripture = scriptures[indexPath.row]
         
-        cell.textLabel?.text = scripture.quote
+        cell.textLabel?.text = scripture.citation
         
-        cell.detailTextLabel?.text = scripture.citation
+        cell.detailTextLabel?.text = scripture.source
         cell.detailTextLabel?.textColor = UIColor.lightGray
         cell.detailTextLabel?.alpha = 1.0
         
@@ -88,15 +91,17 @@ class ScripturesTableViewController: UITableViewController {
     
     
     func loadDataFromRealm() {
-        if realm == nil {
-            realm = RealmManager.shared.realm
-        }
+//        if realm == nil {
+//            realm = RealmManager.shared.realm
+//        }
         
-        let scriptureItems = realm.objects(Scripture.self)
+        let scriptureItems = RealmManager.shared.realm.objects(Scripture.self)
         
         scriptures = List<Scripture>()
         scriptures.append(objectsIn: scriptureItems)
         
+        //members.append(objectsIn: hpMembers)
+
     }
     
     func setupUI() {
@@ -158,5 +163,44 @@ class ScripturesTableViewController: UITableViewController {
 }
 
 extension ScripturesTableViewController {
-    func add() {}
+    func add() {
+        let alertController = UIAlertController(title: "New Scripture", message: "Enter the following", preferredStyle: .alert)
+        var tfAlertCitation: UITextField!
+        var tfAlertSource: UITextField!
+
+        
+        alertController.addTextField { detailTextField in
+            tfAlertSource = detailTextField
+            detailTextField.placeholder = "Source"
+        }
+
+        alertController.addTextField { textField in
+            tfAlertCitation = textField
+            textField.placeholder = "Scripture Citation"
+        }
+        
+        
+        alertController.addAction(UIAlertAction(title: "Add", style: .default) { _ in
+            guard let citation = tfAlertCitation.text , !citation.isEmpty else { return }
+            guard let source = tfAlertSource.text , !source.isEmpty else { return }
+            
+            
+            try! RealmManager.shared.realm.write {
+                let newScripture = Scripture(value: ["citation": citation , "source": source])
+                
+                self.scriptures.append(newScripture)
+                
+                RealmManager.shared.realm.add(newScripture)
+                
+                self.tableView.reloadData()
+                
+            }
+            
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+    }
+
 }
