@@ -10,7 +10,7 @@
 		57F73C4F1EAF8AD300FA1A63 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73C4E1EAF8AD300FA1A63 /* RealmManager.swift */; };
 		7450FDE01EA9748C00285863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450FDDF1EA9748C00285863 /* AppDelegate.swift */; };
 		7450FDE21EA9748C00285863 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450FDE11EA9748C00285863 /* FirstViewController.swift */; };
-		7450FDE41EA9748C00285863 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450FDE31EA9748C00285863 /* SecondViewController.swift */; };
+		7450FDE41EA9748C00285863 /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450FDE31EA9748C00285863 /* AttendanceViewController.swift */; };
 		7450FDE91EA9748C00285863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7450FDE81EA9748C00285863 /* Assets.xcassets */; };
 		7450FDEC1EA9748C00285863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7450FDEA1EA9748C00285863 /* LaunchScreen.storyboard */; };
 		7450FDF41EA9789700285863 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7450FDF31EA9789700285863 /* Realm.framework */; };
@@ -52,7 +52,7 @@
 		7450FDDC1EA9748C00285863 /* QuormApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuormApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7450FDDF1EA9748C00285863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7450FDE11EA9748C00285863 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		7450FDE31EA9748C00285863 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7450FDE31EA9748C00285863 /* AttendanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		7450FDE81EA9748C00285863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7450FDEB1EA9748C00285863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7450FDED1EA9748C00285863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			children = (
 				7450FDDF1EA9748C00285863 /* AppDelegate.swift */,
 				7450FDE11EA9748C00285863 /* FirstViewController.swift */,
-				7450FDE31EA9748C00285863 /* SecondViewController.swift */,
+				7450FDE31EA9748C00285863 /* AttendanceViewController.swift */,
 				7450FDFC1EAA4D3900285863 /* MembersTableViewController.swift */,
 				7450FE091EAD276C00285863 /* ToolsTableViewController.swift */,
 				7450FE0E1EAFCBC100285863 /* ScripturesTableViewController.swift */,
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7450FE101EAFCBC100285863 /* ScripturesTableViewController.swift in Sources */,
-				7450FDE41EA9748C00285863 /* SecondViewController.swift in Sources */,
+				7450FDE41EA9748C00285863 /* AttendanceViewController.swift in Sources */,
 				7450FDE01EA9748C00285863 /* AppDelegate.swift in Sources */,
 				57F73C4F1EAF8AD300FA1A63 /* RealmManager.swift in Sources */,
 				7450FDFD1EAA4D3900285863 /* MembersTableViewController.swift in Sources */,
