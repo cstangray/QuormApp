@@ -12,24 +12,7 @@ import RealmSwift
 import RealmResultsController
 
 
-final class MemberList: Object {
-    dynamic var text = ""
-    dynamic var id = ""
-    let items = List<Member>()
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
 
-final class Member: Object {
-    dynamic var firstName = ""
-    dynamic var familyName = ""
-    dynamic var fullName = ""
-    dynamic var spouseName = ""
-    dynamic var autoAttend = false
-    dynamic var completed = false
-}
 
 
 class MembersTableViewController: UITableViewController {

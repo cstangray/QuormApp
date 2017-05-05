@@ -12,13 +12,25 @@ import RealmResultsController
 
 
 class AttendanceViewController: UITableViewController {
+    
+
 
     var members = List<Member>()
     
+    let dateFormatter = DateFormatter()
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
         setupUI()
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         loadDataFromRealm()
@@ -126,7 +138,7 @@ class AttendanceViewController: UITableViewController {
     
 }
 
-extension AttendanceViewController {
+extension AttendanceViewController : UIPopoverPresentationControllerDelegate, PopupContainerViewControllerDelegate {
     
 
 
@@ -164,18 +176,37 @@ extension AttendanceViewController {
     
     func add() {
         
-    }
-
-    
-    func switchValueDidChange(sender:UISwitch!){
         
-        try! RealmManager.shared.realm.write {
-            
-            let member = members[sender.tag]
-            
-            member.autoAttend = sender.isOn
-            
+        //let frame = CGRect(x: 0, y: 100, width: 100.0, height: 100.0)
+
+        let vc = PopupContainerViewController()
+        
+        vc.delegate = self
+        vc.modalPresentationStyle = .popover
+        
+        guard let popoverPresentationController = vc.popoverPresentationController else {
+            return
         }
+        
+        
+        
+        popoverPresentationController.permittedArrowDirections = [.up, .down]
+        popoverPresentationController.delegate = self
+        popoverPresentationController.sourceView = self.view
+        //popoverPresentationController.sourceRect = frame//cell.frame.offsetBy(dx: 0, dy: 50 + height)
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    func calendarDidSelectDate(vc: PopupContainerViewController,  selectedDate: Date) {
+        vc.dismiss(animated: true, completion: {
+            self.assignDate(selectedDate: selectedDate)
+        })
+    }
+    
+    func assignDate(selectedDate: Date) {
+        print(self.dateFormatter.string(from:selectedDate as Date))
     }
     
     
