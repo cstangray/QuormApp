@@ -32,7 +32,7 @@ class FirstViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.loadScripture()
+        //self.loadScripture()
     }
 
     override func didReceiveMemoryWarning() {
