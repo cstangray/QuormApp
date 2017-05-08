@@ -18,6 +18,7 @@ class AttendanceViewController: UITableViewController {
     var members = List<Member>()
     
     let dateFormatter = DateFormatter()
+    let rollDate:Date = Date()
 
 
     
@@ -33,6 +34,7 @@ class AttendanceViewController: UITableViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
         loadDataFromRealm()
         tableView.reloadData()
     }
@@ -132,8 +134,45 @@ class AttendanceViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(dateTypeSelector))
         //navigationItem.leftBarButtonItem = editButtonItem
+        
+        self.setupTitleView()
+    }
+    
+    private func setupTitleView() {
+        let topText = NSLocalizedString("key", comment: "Attendance")
+        let bottomText = NSLocalizedString("key", comment: "05/08/17")
+        
+        let titleParameters = [NSForegroundColorAttributeName : UIColor.black,
+                               NSFontAttributeName : UIFont.systemFontSize] as [String : Any]
+        let subtitleParameters = [NSForegroundColorAttributeName : UIColor.lightGray,
+                                  NSFontAttributeName : UIFont.smallSystemFontSize] as [String : Any]
+        
+        //let title:NSMutableAttributedString = NSMutableAttributedString(string: topText, attributes: titleParameters)
+        //let subtitle:NSAttributedString = NSAttributedString(string: bottomText, attributes: subtitleParameters)
+        
+        let title = NSMutableAttributedString(string: topText, attributes: titleParameters)
+        let subtitle = NSAttributedString(string: bottomText, attributes: subtitleParameters)
+
+        
+        title.append(NSAttributedString(string: "\n"))
+        title.append(subtitle)
+        
+        
+        //let size = title.size()
+        //let size = size()
+        
+        let width = 200 //size.width
+        
+        guard let height = navigationController?.navigationBar.frame.size.height else {return}
+        
+        let titleLabel = UILabel(frame: CGRect(x:0,y:0, width:width, height:Int(height)))
+        titleLabel.attributedText = title
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+        
+        navigationItem.titleView = titleLabel
     }
     
 }
@@ -174,6 +213,27 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
         }
     }
     
+    func dateTypeSelector() {
+        let alertController = UIAlertController(title: "Date Selector", message: "Select Today or Previous Attendance Roll", preferredStyle: .alert)
+        
+        
+        alertController.addAction(UIAlertAction(title: "Today", style: .default) { _ in
+            
+        
+            
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Previous Roll", style: .default) { _ in
+            
+            self.add()
+            
+        })
+
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+    }
     func add() {
         
         
