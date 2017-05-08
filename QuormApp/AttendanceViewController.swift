@@ -233,6 +233,10 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
         self.rollDate = selectedDate
         self.setupTitleView()
         
+        //TODO:
+        // select previous attendance records from Realm
+        // reload table data (read-only IF previous)
+        
         //print(self.dateFormatter.string(from:selectedDate as Date))
     }
     

@@ -32,7 +32,7 @@ class FirstViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.loadScripture()
+        self.loadScripture()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,11 +42,15 @@ class FirstViewController: UIViewController {
 
     func loadScripture() {
         
-        let selectedRandomIndex = Int(arc4random_uniform(UInt32(scriptureArray.count)))
+        if scriptures.count > 0 {
+            let selectedRandomIndex = Int(arc4random_uniform(UInt32(scriptureArray.count)))
         
-        let scripture = scriptures[selectedRandomIndex]
+            let scripture = scriptures[selectedRandomIndex]
         
-        scriptureLabel.text = scripture.citation
+            scriptureLabel.text = scripture.citation
+        } else {
+            scriptureLabel.text = ""
+        }
         
     }
 }
