@@ -36,6 +36,7 @@
 		74B672DF1EBCC295005BE034 /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B672DE1EBCC295005BE034 /* CalendarViewController.xib */; };
 		74B672E21EBCD704005BE034 /* PopupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B672E01EBCD704005BE034 /* PopupContainerViewController.swift */; };
 		74B672E31EBCD704005BE034 /* PopupContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B672E11EBCD704005BE034 /* PopupContainerViewController.xib */; };
+		74B672E51EC4C613005BE034 /* QuormRealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B672E41EC4C613005BE034 /* QuormRealmModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +86,7 @@
 		74B672DE1EBCC295005BE034 /* CalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
 		74B672E01EBCD704005BE034 /* PopupContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupContainerViewController.swift; sourceTree = "<group>"; };
 		74B672E11EBCD704005BE034 /* PopupContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupContainerViewController.xib; sourceTree = "<group>"; };
+		74B672E41EC4C613005BE034 /* QuormRealmModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuormRealmModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,8 @@
 		7450FDDE1EA9748C00285863 /* QuormApp */ = {
 			isa = PBXGroup;
 			children = (
+				57F73C4E1EAF8AD300FA1A63 /* RealmManager.swift */,
+				74B672E41EC4C613005BE034 /* QuormRealmModels.swift */,
 				7450FDDF1EA9748C00285863 /* AppDelegate.swift */,
 				7450FDE11EA9748C00285863 /* FirstViewController.swift */,
 				7450FDE31EA9748C00285863 /* AttendanceViewController.swift */,
@@ -137,7 +141,6 @@
 				7450FE0F1EAFCBC100285863 /* ScripturesTableViewController.xib */,
 				74B672DA1EBBC1B4005BE034 /* LoadViewExampleViewController.swift */,
 				7450FDFE1EAA4D4600285863 /* Main.storyboard */,
-				57F73C4E1EAF8AD300FA1A63 /* RealmManager.swift */,
 				7450FDE81EA9748C00285863 /* Assets.xcassets */,
 				7450FDFA1EAA4CF700285863 /* Tabbar.xcassets */,
 				7450FDEA1EA9748C00285863 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 				74B672E21EBCD704005BE034 /* PopupContainerViewController.swift in Sources */,
 				7450FDFD1EAA4D3900285863 /* MembersTableViewController.swift in Sources */,
 				74B672DD1EBBCE07005BE034 /* CalendarViewController.swift in Sources */,
+				74B672E51EC4C613005BE034 /* QuormRealmModels.swift in Sources */,
 				7450FE0A1EAD276C00285863 /* ToolsTableViewController.swift in Sources */,
 				7450FDE21EA9748C00285863 /* FirstViewController.swift in Sources */,
 			);

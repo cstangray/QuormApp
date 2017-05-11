@@ -12,9 +12,6 @@ import RealmSwift
 import RealmResultsController
 
 
-
-
-
 class MembersTableViewController: UITableViewController {
     
     var members = List<Member>()
@@ -261,6 +258,7 @@ extension MembersTableViewController {
             
             try! RealmManager.shared.realm.write {
                 let newMember = Member(value: ["firstName": firstName , "familyName": lastName, "spouseName": spouseName, "fullName" : firstName + " " + lastName])
+                newMember.id = Int(arc4random_uniform(9999))
 
                 self.members.append(newMember)
                 

@@ -11,11 +11,13 @@ import RealmSwift
 import RealmResultsController
 
 
+
+
 class AttendanceViewController: UITableViewController {
     
-
-
     var members = List<Member>()
+    var rrc: RealmResultsController<TaskModelObject, TaskObject>?
+
     
     let dateFormatter = DateFormatter()
     var rollDate:Date = Date()
