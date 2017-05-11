@@ -53,8 +53,8 @@ class Attendance: RealmSwift.Object {
 class TaskObject: RealmSwift.Object {
     dynamic var id = 0
     dynamic var name = ""
-    dynamic var resolved = false
-    dynamic var projectID = 0
+    dynamic var attended = false
+    dynamic var meetingDate = Date()
     dynamic var user: Member?
     
     override static func primaryKey() -> String? {
@@ -69,8 +69,8 @@ class TaskObject: RealmSwift.Object {
         let task = TaskObject()
         task.id = model.id
         task.name = model.name
-        task.resolved = model.resolved
-        task.projectID = model.projectID
+        task.attended = model.attended
+        task.meetingDate = model.meetingDate
         return task
     }
     
@@ -78,8 +78,8 @@ class TaskObject: RealmSwift.Object {
         let task = TaskModelObject()
         task.id = taskModel.id
         task.name = taskModel.name
-        task.resolved = taskModel.resolved
-        task.projectID = taskModel.projectID
+        task.attended = taskModel.attended
+        task.meetingDate = taskModel.meetingDate
         return task
     }
 }
@@ -87,8 +87,8 @@ class TaskObject: RealmSwift.Object {
 class TaskModelObject: RealmSwift.Object {
     dynamic var id = 0
     dynamic var name = ""
-    dynamic var resolved = false
-    dynamic var projectID = 0
+    dynamic var attended = false
+    dynamic var meetingDate = Date()
     dynamic var user: Member?
     
     override static func primaryKey() -> String? {

@@ -20,7 +20,8 @@ class AttendanceViewController: UITableViewController {
 
     
     let dateFormatter = DateFormatter()
-    var rollDate:Date = Date()
+    var rollDate:Date?
+    let pageTitle = "Attendace Record"
 
 
     
@@ -36,8 +37,8 @@ class AttendanceViewController: UITableViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        loadDataFromRealm()
-        tableView.reloadData()
+        //loadDataFromRealm()
+        //tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -160,7 +161,6 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
         
         theButton.tag = indexPath.row
         
-
         
         return theButton
         
@@ -184,6 +184,12 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
         
         alertController.addAction(UIAlertAction(title: "Today", style: .default) { _ in
             
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveRecord))
+
+            self.rollDate = Date()
+            self.setupTitleView()
+            self.loadDataFromRealm()
+            self.tableView.reloadData()
         
             
         })
@@ -228,6 +234,7 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
     func calendarDidSelectDate(vc: PopupContainerViewController,  selectedDate: Date) {
         vc.dismiss(animated: true, completion: {
             self.assignDate(selectedDate: selectedDate)
+
         })
     }
     
@@ -243,9 +250,15 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
     }
     
     func setupTitleView() {
-        let topText = NSLocalizedString("Attendance Record", comment: "Attendance")
-        let stringDate = self.dateFormatter.string(from:rollDate as Date)
-        let bottomText = NSLocalizedString(stringDate, comment: "recordDate")
+        self.title = pageTitle
+        
+        guard let titleDate = rollDate else { return }
+        
+        let displayDate = self.dateFormatter.string(from:titleDate)
+
+        let topText = NSLocalizedString(pageTitle, comment: "Attendance")
+        
+        let bottomText = NSLocalizedString(displayDate, comment: "recordDate")
         
         
         let titleParameters:[String:Any] = [NSForegroundColorAttributeName : UIColor.black,
@@ -269,6 +282,23 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
         titleLabel.textAlignment = .center
         
         navigationItem.titleView = titleLabel
+    }
+    
+    func saveRecord() {
+        print("save record")
+        
+        try! RealmManager.shared.realm.write {
+            for(idx,member) in members.enumerated() {
+                let task = TaskModelObject()
+                task.id = member.id
+                task.name = "Task-\(idx)"
+                task.attended = true
+                task.meetingDate = self.rollDate!
+                task.user = member
+                RealmManager.shared.realm.add(task)
+            }
+        }
+
     }
 }
 
