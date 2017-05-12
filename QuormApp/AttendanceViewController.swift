@@ -288,15 +288,30 @@ extension AttendanceViewController : UIPopoverPresentationControllerDelegate, Po
         print("save record")
         
         try! RealmManager.shared.realm.write {
+
+            
             for(idx,member) in members.enumerated() {
-                let task = TaskModelObject()
-                task.id = member.id
-                task.name = "Task-\(idx)"
-                task.attended = true
-                task.meetingDate = self.rollDate!
-                task.user = member
-                RealmManager.shared.realm.add(task)
+            
+                let newRecord = Attendance()
+                
+                newRecord.memberId = member.id
+                newRecord.meetingDate = self.rollDate!
+                newRecord.present = true
+                            
+                RealmManager.shared.realm.add(newRecord)
             }
+            
+            
+
+//            for(idx,member) in members.enumerated() {
+//                let task = TaskModelObject()
+//                task.id = member.id
+//                task.name = "Task-\(idx)"
+//                task.attended = true
+//                task.meetingDate = self.rollDate!
+//                task.user = member
+//                RealmManager.shared.realm.add(task)
+//            }
         }
 
     }

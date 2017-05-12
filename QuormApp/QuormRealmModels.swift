@@ -45,7 +45,7 @@ final class AttendanceList: RealmSwift.Object {
 }
 
 class Attendance: RealmSwift.Object {
-    dynamic var memberId = ""
+    dynamic var memberId = 0
     dynamic var meetingDate = Date()
     dynamic var present = false
 }

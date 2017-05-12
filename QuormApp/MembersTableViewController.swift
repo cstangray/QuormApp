@@ -172,6 +172,54 @@ class MembersTableViewController: UITableViewController {
         
     }
     
+    func loadDataFromRealmDefault() {
+        var idx = 0
+        try! RealmManager.shared.realm.write {
+            RealmManager.shared.realm.deleteAll()
+        }
+        
+        try! RealmManager.shared.realm.write {
+
+            var member = Member()
+            member.id = idx
+            member.firstName = "Garn"
+            member.familyName = "Arnold"
+            member.spouseName = "Sherrie"
+            member.fullName = member.firstName + " " + member.familyName
+            member.autoAttend = false
+            RealmManager.shared.realm.add(member)
+            idx = idx + 1
+            
+            member = Member()
+            member.id = idx
+            member.firstName = "Cory"
+            member.familyName = "Bangerter"
+            member.spouseName = "Gail"
+            member.fullName = member.firstName + " " + member.familyName
+            member.autoAttend = true
+            RealmManager.shared.realm.add(member)
+            idx = idx + 1
+            
+            member = Member()
+            member.id = idx
+            member.firstName = "Stan"
+            member.familyName = "Gray"
+            member.spouseName = "Sue"
+            member.fullName = member.firstName + " " + member.familyName
+            member.autoAttend = false
+            RealmManager.shared.realm.add(member)
+            idx = idx + 1
+
+        }
+        
+        
+        let hpMembers = RealmManager.shared.realm.objects(Member.self).sorted(byKeyPath: "familyName")
+
+        members = List<Member>() //reset obj
+        members.append(objectsIn: hpMembers)
+        
+    }
+    
     func setupUI() {
         title = "Quorm Members"
         
